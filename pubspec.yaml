@@ -1,6 +1,6 @@
 name: activitypub
 description: A library for the ActivityPub standard. Created an also used by Fedodo.
-version: 1.0.1
+version: 1.0.3
 repository: https://github.com/Fedodo/Fedodo.Pub.ActivityPub
 
 environment:
