@@ -1,20 +1,18 @@
-import 'dart:io';
+import 'package:activitypub/config.dart';
+import 'package:jwt_decoder/jwt_decoder.dart';
+import 'package:http/http.dart' as http;
 
 class AuthBaseApi {
-  static LoginManager loginManager =
-      LoginManager(!kIsWeb && Platform.isAndroid);
-
-  static Future<Response> get({
+  static Future<http.Response> get({
     required Uri url,
     Map<String, String>? headers,
   }) async {
-    if (JwtDecoder.isExpired(Preferences.prefs!.getString("AccessToken")!)) {
-      await loginManager.refresh(Preferences.prefs!.getString("ClientId")!,
-          Preferences.prefs!.getString("ClientSecret")!);
+    if (JwtDecoder.isExpired(Config.accessToken)) {
+      Config.refreshAccessToken();
     }
 
     var headersToBeSent = <String, String>{
-      "Authorization": "Bearer ${Preferences.prefs!.getString("AccessToken")}",
+      "Authorization": "Bearer ${Config.accessToken}",
       "Content-Type": "application/json"
     };
 
@@ -30,18 +28,17 @@ class AuthBaseApi {
     return response;
   }
 
-  static Future<Response> post({
+  static Future<http.Response> post({
     required Uri url,
     required String body,
     Map<String, String>? headers,
   }) async {
-    if (JwtDecoder.isExpired(Preferences.prefs!.getString("AccessToken")!)) {
-      loginManager.refresh(Preferences.prefs!.getString("ClientId")!,
-          Preferences.prefs!.getString("ClientSecret")!);
+    if (JwtDecoder.isExpired(Config.accessToken)) {
+      Config.refreshAccessToken();
     }
 
     var headersToBeSent = <String, String>{
-      "Authorization": "Bearer ${Preferences.prefs!.getString("AccessToken")}",
+      "Authorization": "Bearer ${Config.accessToken}",
       "Content-Type": "application/json"
     };
 

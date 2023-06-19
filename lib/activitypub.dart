@@ -3,6 +3,10 @@
 /// More dartdocs go here.
 library;
 
-export 'src/activitypub_base.dart';
+export 'config.dart';
 
-// TODO: Export any libraries intended for clients of this package.
+export 'package:activitypub/APIs/activity_api.dart';
+export 'package:activitypub/APIs/actor_api.dart';
+export 'package:activitypub/APIs/auth_base_api.dart';
+
+export 'package:activitypub/Models/ObjectTypes/document.dart';

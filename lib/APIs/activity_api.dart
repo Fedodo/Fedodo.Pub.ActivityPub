@@ -1,9 +1,13 @@
 import 'dart:convert';
+import 'package:activitypub/Extensions/url_extensions.dart';
+import 'package:activitypub/config.dart';
+import 'package:http/http.dart' as http;
+import 'package:activitypub/APIs/auth_base_api.dart';
+import 'package:activitypub/Models/activity.dart';
+import 'package:activitypub/Models/post.dart';
 
 class ActivityAPI {
-
   Future follow(Uri object) async {
-
     Map<String, dynamic> body = {
       "to": ["as:Public"],
       "type": "Follow",
@@ -13,7 +17,8 @@ class ActivityAPI {
     String json = jsonEncode(body);
 
     await AuthBaseApi.post(
-      url: Uri.parse("https://${Preferences.prefs!.getString("DomainName")}/outbox/${General.actorId}"),
+      url:
+          Uri.parse("https://${Config.domainName}/outbox/${Config.ownActorId}"),
       body: json,
       headers: <String, String>{
         "content-type": "application/json",
@@ -40,7 +45,8 @@ class ActivityAPI {
     String json = jsonEncode(body);
 
     await AuthBaseApi.post(
-      url: Uri.parse("https://${Preferences.prefs!.getString("DomainName")}/outbox/${General.actorId}"),
+      url:
+          Uri.parse("https://${Config.domainName}/outbox/${Config.ownActorId}"),
       headers: <String, String>{
         "content-type": "application/json",
       },
@@ -49,10 +55,9 @@ class ActivityAPI {
   }
 
   Future<Activity<Post>> getActivity(String activityId) async {
-
     Uri activityUri = Uri.parse(activityId);
 
-    if(activityUri.authority != Preferences.prefs!.getString("DomainName")){
+    if (activityUri.authority != Config.domainName) {
       activityUri = activityUri.asProxyUri();
     }
 
@@ -63,7 +68,8 @@ class ActivityAPI {
       },
     );
 
-    Activity<Post> activity = Activity.fromJson(jsonDecode(utf8.decode(response.bodyBytes)));
+    Activity<Post> activity =
+        Activity.fromJson(jsonDecode(utf8.decode(response.bodyBytes)));
 
     return activity;
   }

@@ -1,15 +1,20 @@
 import 'dart:convert';
+import 'package:activitypub/APIs/auth_base_api.dart';
+import 'package:activitypub/Models/ordered_collection_page.dart';
 import 'package:activitypub/Models/ordered_paged_collection.dart';
+import 'package:activitypub/config.dart';
+import 'package:http/http.dart' as http;
 
 class SharesAPI {
   Future<OrderedPagedCollection> getShares(String postId) async {
     String formattedUrl =
-        "https://${Preferences.prefs!.getString("DomainName")}/shares/${Uri.encodeQueryComponent(postId)}";
+        "https://${Config.domainName}/shares/${Uri.encodeQueryComponent(postId)}";
 
     http.Response response =
         await http.get(Uri.parse(formattedUrl), headers: <String, String>{});
 
-    OrderedPagedCollection collection = OrderedPagedCollection.fromJson(jsonDecode(utf8.decode(response.bodyBytes)));
+    OrderedPagedCollection collection = OrderedPagedCollection.fromJson(
+        jsonDecode(utf8.decode(response.bodyBytes)));
     return collection;
   }
 
@@ -22,14 +27,15 @@ class SharesAPI {
         Uri.parse(url),
       );
 
-      OrderedCollectionPage collection = OrderedCollectionPage.fromJson(jsonDecode(utf8.decode(response.bodyBytes)));
+      OrderedCollectionPage collection = OrderedCollectionPage.fromJson(
+          jsonDecode(utf8.decode(response.bodyBytes)));
 
       if (collection.orderedItems.isEmpty) {
         return false;
       }
 
       if (collection.orderedItems
-          .where((element) => element.actor == General.fullActorId)
+          .where((element) => element.actor == "https://${Config.domainName}/actor/${Config.ownActorId}")
           .isNotEmpty) {
         return true;
       }
@@ -48,7 +54,8 @@ class SharesAPI {
     String json = jsonEncode(body);
 
     await AuthBaseApi.post(
-      url: Uri.parse("https://${Preferences.prefs!.getString("DomainName")}/outbox/${General.actorId}"),
+      url:
+          Uri.parse("https://${Config.domainName}/outbox/${Config.ownActorId}"),
       headers: <String, String>{
         "content-type": "application/json",
       },

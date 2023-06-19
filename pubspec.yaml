@@ -1,14 +1,14 @@
 name: activitypub
-description: A starting point for Dart libraries or applications.
+description: A library for the ActivityPub standard. Created an also used by Fedodo.
 version: 1.0.0
-# repository: https://github.com/my_org/my_repo
+repository: https://github.com/Fedodo/Fedodo.Pub.ActivityPub
 
 environment:
   sdk: ^3.0.2
 
-# Add regular dependencies here.
 dependencies:
-  # path: ^1.8.0
+  jwt_decoder: ^2.0.1
+  http: ^0.13.5
 
 dev_dependencies:
   lints: ^2.0.0
