@@ -3,7 +3,7 @@ name: PrepareForPublish
 on:
   workflow_dispatch:
   push:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   Prepare:
@@ -11,6 +11,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: Set PUBSPEC_VERSION
         run: |
@@ -37,4 +39,3 @@ jobs:
       #     repo_token: "${{ secrets.GH_TOKEN }}"
       #     automatic_release_tag: "${{ env.VERSION }}"
       #     prerelease: false
-
