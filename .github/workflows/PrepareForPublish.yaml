@@ -23,6 +23,8 @@ jobs:
 
           echo "${{ env.PUBSPEC_VERSION }}"
 
+      - run: echo "${{ env.PUBSPEC_VERSION }}"
+
       # - uses: "marvinpinto/action-automatic-releases@latest"
       #   with:
       #     repo_token: "${{ secrets.GH_TOKEN }}"
