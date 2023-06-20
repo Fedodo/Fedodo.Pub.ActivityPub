@@ -15,7 +15,7 @@ jobs:
       - name: Check if current version is incorrect
         run: |
 
-          echo "{PUBSPEC_VERSION}={$grep 'version:' pubspec.yaml | tail -n1 | awk '{ print $2}'}" >> "$GITHUB_ENV"
+          echo "PUBSPEC_VERSION=$grep 'version:' pubspec.yaml | tail -n1 | awk '{ print $2}'" >> "$GITHUB_ENV"
 
           echo "${{ env.PUBSPEC_VERSION }}"
 
