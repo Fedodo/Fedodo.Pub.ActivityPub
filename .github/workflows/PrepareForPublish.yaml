@@ -24,7 +24,7 @@ jobs:
 
       - name: Check for Tag
         run: |
-          TAG="${{ env.PUBSPEC_VERSION }}"
+          TAG="v${{ env.PUBSPEC_VERSION }}"
           if git show-ref --tags --verify --quiet "refs/tags/${TAG}"; then
             echo "Tag ${TAG} exists"
             exit 1
