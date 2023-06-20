@@ -5,9 +5,6 @@ on:
   push:
     branches: [ main ]
 
-env:
-  VERSION: v1.0.${{ github.run_number }}
-
 jobs:
   Prepare:
     runs-on: ubuntu-latest
@@ -15,10 +12,16 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - uses: "marvinpinto/action-automatic-releases@latest"
-        with:
-          repo_token: "${{ secrets.GH_TOKEN }}"
-          automatic_release_tag: "${{ env.VERSION }}"
-          prerelease: false
-          title: "${{ env.VERSION }}"
+      - name: Check if current version is incorrect
+        run: |
+
+          echo "{PUBSPEC_VERSION}={$grep 'version:' pubspec.yaml | tail -n1 | awk '{ print $2}'}" >> "$GITHUB_ENV"
+
+          echo "${{ env.PUBSPEC_VERSION }}"
+
+      # - uses: "marvinpinto/action-automatic-releases@latest"
+      #   with:
+      #     repo_token: "${{ secrets.GH_TOKEN }}"
+      #     automatic_release_tag: "${{ env.VERSION }}"
+      #     prerelease: false
 
