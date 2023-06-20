@@ -12,18 +12,25 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Check if current version is incorrect
+      - name: Set PUBSPEC_VERSION
         run: |
-
           version=$(grep 'version:' pubspec.yaml | tail -n1 | awk '{ print $2}')
 
           echo $version
 
           echo "PUBSPEC_VERSION=$version" >> "$GITHUB_ENV"
 
-          echo "${{ env.PUBSPEC_VERSION }}"
-
       - run: echo "${{ env.PUBSPEC_VERSION }}"
+
+      - name: Check for Tag
+        run: |
+          TAG="${{ env.PUBSPEC_VERSION }}"
+          if git show-ref --tags --verify --quiet "refs/tags/${TAG}"; then
+            echo "Tag ${TAG} exists"
+            exit 1
+          else
+            echo "Tag ${TAG} does not exist"
+          fi
 
       # - uses: "marvinpinto/action-automatic-releases@latest"
       #   with:
