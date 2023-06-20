@@ -19,7 +19,7 @@ jobs:
 
           echo $version
 
-          echo "PUBSPEC_VERSION=$version" >> "$GITHUB_ENV"
+          echo "PUBSPEC_VERSION=version" >> "$GITHUB_ENV"
 
           echo "${{ env.PUBSPEC_VERSION }}"
 
