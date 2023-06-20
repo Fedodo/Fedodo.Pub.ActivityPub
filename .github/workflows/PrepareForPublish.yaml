@@ -6,7 +6,7 @@ on:
     branches: [ main ]
 
 env:
-  version: v1.0.${{ github.run_number }}
+  VERSION: v1.0.${{ github.run_number }}
 
 jobs:
   Prepare:
@@ -18,7 +18,7 @@ jobs:
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: ${{ env.VERSION }}
+          automatic_release_tag: "${{ env.VERSION }}"
           prerelease: false
-          title: ${{ env.VERSION }}
+          title: "${{ env.VERSION }}"
 
