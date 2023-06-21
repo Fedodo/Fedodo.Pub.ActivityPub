@@ -34,8 +34,17 @@ jobs:
             echo "Tag ${TAG} does not exist"
           fi
 
-      - uses: "marvinpinto/action-automatic-releases@latest"
+      - run: sed -i '1s/^/## ${{ env.PUBSPEC_VERSION }}\n\n /' CHANGELOG.md
+
+      - name: Commit changelog
+        uses: test-room-7/action-update-file@v1
         with:
-          repo_token: "${{ secrets.GH_TOKEN }}"
-          automatic_release_tag: "${{ env.PUBSPEC_VERSION }}"
-          prerelease: false
+            file-path: CHANGELOG.md
+            commit-msg: 📝 Updated Changelog
+            github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      # - uses: "marvinpinto/action-automatic-releases@latest"
+      #   with:
+      #     repo_token: "${{ secrets.GH_TOKEN }}"
+      #     automatic_release_tag: "${{ env.PUBSPEC_VERSION }}"
+      #     prerelease: false
