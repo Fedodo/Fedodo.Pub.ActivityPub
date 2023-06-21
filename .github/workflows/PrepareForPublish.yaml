@@ -36,10 +36,7 @@ jobs:
 
       - name: Update Changelog
         run: |
-          echo "Tag name from GITHUB_REF_NAME: $GITHUB_REF_NAME"
-          echo "Tag name from github.ref_name: ${{  github.ref_name }}" 
-          lasttag=$(echo v${{ env.PUBSPEC_VERSION }})
-          commits=$(git log $lasttag..HEAD --oneline | cut -c 8- | sed -e 's/^/- /' | cat)
+          commits=$(git log $(git describe --tags --abbrev=0)..HEAD --oneline | cut -c 8- | sed -e 's/^/- /' | cat)
           sed -i '1s/^/## ${{ env.PUBSPEC_VERSION }}\n\n/$commits' CHANGELOG.md
 
       - name: Commit Changelog
