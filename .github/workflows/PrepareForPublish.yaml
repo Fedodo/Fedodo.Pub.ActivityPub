@@ -34,9 +34,12 @@ jobs:
             echo "Tag ${TAG} does not exist"
           fi
 
-      - run: sed -i '1s/^/## ${{ env.PUBSPEC_VERSION }}\n\n/' CHANGELOG.md
+      - name: Update Changelog
+        run: |
+          commits=$(git log v${{ env.PUBSPEC_VERSION }}..HEAD --oneline | cut -c 8- | sed -e 's/^/- /' | cat)
+          sed -i '1s/^/## ${{ env.PUBSPEC_VERSION }}\n\n/$commits' CHANGELOG.md
 
-      - name: Commit changelog
+      - name: Commit Changelog
         uses: test-room-7/action-update-file@v1
         with:
             file-path: CHANGELOG.md
