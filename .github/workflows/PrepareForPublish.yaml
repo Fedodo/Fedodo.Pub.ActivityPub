@@ -37,7 +37,7 @@ jobs:
       - name: Update Changelog
         run: |
           commits=$(git log $(git describe --tags --abbrev=0)..HEAD --oneline | cut -c 8- | sed -e 's/^/- /' | cat)
-          sed -i '1s/^/## ${{ env.PUBSPEC_VERSION }}\n\n/$commits' CHANGELOG.md
+          sed -i '1s/^/## ${{ env.PUBSPEC_VERSION }}\n\n$commits/' CHANGELOG.md
 
       - name: Commit Changelog
         uses: test-room-7/action-update-file@v1
