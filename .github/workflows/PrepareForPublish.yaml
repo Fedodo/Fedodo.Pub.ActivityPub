@@ -34,7 +34,7 @@ jobs:
             echo "Tag ${TAG} does not exist"
           fi
 
-      - run: sed -i '1s/^/## ${{ env.PUBSPEC_VERSION }}\n\n /' CHANGELOG.md
+      - run: sed -i '1s/^/## ${{ env.PUBSPEC_VERSION }}\n\n/' CHANGELOG.md
 
       - name: Commit changelog
         uses: test-room-7/action-update-file@v1
