@@ -68,8 +68,12 @@ jobs:
 
       - run: echo "$(cat CHANGELOG.md)"
 
-      - uses: "marvinpinto/action-automatic-releases@latest"
-        with:
-          repo_token: "${{ secrets.GH_TOKEN }}"
-          automatic_release_tag: "v${{ env.PUBSPEC_VERSION }}"
-          prerelease: false
+      - run: |
+          git tag v${{ env.PUBSPEC_VERSION }}
+          git push origin --tags
+
+      # - uses: "marvinpinto/action-automatic-releases@latest"
+      #   with:
+      #     repo_token: "${{ secrets.GH_TOKEN }}"
+      #     automatic_release_tag: "v${{ env.PUBSPEC_VERSION }}"
+      #     prerelease: false
