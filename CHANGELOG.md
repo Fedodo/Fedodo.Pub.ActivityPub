@@ -1,3 +1,9 @@
+## v1.0.12
+
+-  🔖 Updated version
+-  ⚗️ Added echo for debugging
+-  📝 Updated Changelog
+
 ## v1.0.11
 
 -  ⚗️ Test
