@@ -3,11 +3,6 @@
 -  ⚗️ Updated CreateTag step
 -  📝 Updated Changelog
 
-## v1.0.10
-
--  ⚗️ Two steps test
--  📝 Updated Changelog
-
 ## v1.0.9
 
 -  🔖 Updated version
