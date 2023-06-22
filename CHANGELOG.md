@@ -1,5 +1,10 @@
 ## v1.0.8
 
+-  ✏️ Updated release name
+-  📝 Updated Changelog
+
+## v1.0.8
+
 -  ⚗️ Activated release creation
 -  📝 Updated Changelog
 -  ⚗️ Updated replacement
