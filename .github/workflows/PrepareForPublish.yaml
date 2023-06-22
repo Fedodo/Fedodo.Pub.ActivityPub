@@ -46,8 +46,8 @@ jobs:
             commit-msg: 📝 Updated Changelog
             github-token: ${{ secrets.GITHUB_TOKEN }}
 
-      # - uses: "marvinpinto/action-automatic-releases@latest"
-      #   with:
-      #     repo_token: "${{ secrets.GH_TOKEN }}"
-      #     automatic_release_tag: "${{ env.PUBSPEC_VERSION }}"
-      #     prerelease: false
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GH_TOKEN }}"
+          automatic_release_tag: "${{ env.PUBSPEC_VERSION }}"
+          prerelease: false
