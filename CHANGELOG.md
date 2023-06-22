@@ -1,3 +1,10 @@
+## v1.0.9
+
+-  🔖 Updated version
+-  ✏️ Fixed typo
+-  🎨 Fixed changelog
+-  📝 Updated Changelog
+
 ## v1.0.8
 
 -  ✏️ Updated release name
