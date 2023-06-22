@@ -53,7 +53,7 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-          
+
       - name: Set PUBSPEC_VERSION
         run: |
           version=$(grep 'version:' pubspec.yaml | tail -n1 | awk '{ print $2}')
@@ -63,6 +63,8 @@ jobs:
           echo "PUBSPEC_VERSION=$version" >> "$GITHUB_ENV"
 
       - run: echo "${{ env.PUBSPEC_VERSION }}"
+
+      - run: echo "$(cat CHANGELOG.md)"
 
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
