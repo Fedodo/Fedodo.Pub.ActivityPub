@@ -1,3 +1,8 @@
+## v1.0.11
+
+-  ⚗️ Test
+-  📝 Updated Changelog
+
 ## v1.0.10
 
 -  ⚗️ Updated CreateTag step
