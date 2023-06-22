@@ -1,3 +1,8 @@
+## v1.0.14
+
+-  ⚗️ Changed to manual tag creation
+-  📝 Updated Changelog
+
 ## v1.0.13
 
 -  🔖 Updated version
