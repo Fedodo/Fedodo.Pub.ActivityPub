@@ -10,7 +10,7 @@
 -  🚧 Updated changelog sed
 -  📝 Updated Changelog
 -  🐛 Fixed sed
--  ⚗️  Added script for getting last tag
+-  ⚗️ Added script for getting last tag
 -  💚 Fixed workflow not working
 -  ⚗️ Workflow not working
 -  ⚗️ Workflow not working
