@@ -1,3 +1,10 @@
+## v1.1.1
+
+-  ⚗️ Test
+-  🔖 Updated version
+-  🔀 Merge branch 'main' of https://github.com/Fedodo/Fedodo.Pub.ActivityPub
+-  ⚗️ Release creation
+
 ## v1.0.16
 
 -  ⚗️ Test

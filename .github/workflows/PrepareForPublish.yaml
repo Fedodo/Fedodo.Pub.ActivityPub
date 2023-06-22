@@ -36,8 +36,8 @@ jobs:
 
       - name: Update Changelog
         run: |
-          commits=$(git log $(git describe --tags --abbrev=0)..HEAD --oneline | cut -c 8- | sed -e 's/^/- /' | cat | sed ':a;N;$!ba;s/\n/\\n/g')
-          sed -i "1s/^/## v${{ env.PUBSPEC_VERSION }}\n\n$(echo "$commits")\n\n/" CHANGELOG.md
+          commits=$(git log $(git describe --tags --abbrev=0)..HEAD --oneline | cut -c 8- | sed -e 's|^|- |' | cat | sed ':a;N;$!ba;s|\n|\\n|g')
+          sed -i "1s|^|## v${{ env.PUBSPEC_VERSION }}\n\n$(echo "$commits")\n\n|" CHANGELOG.md
 
       - name: Commit Changelog
         uses: test-room-7/action-update-file@v1
