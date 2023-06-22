@@ -1,3 +1,9 @@
+## v1.0.13
+
+-  🔖 Updated version
+-  👷 Added git pull for better checkout
+-  📝 Updated Changelog
+
 ## v1.0.12
 
 -  🔖 Updated version
