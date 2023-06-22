@@ -50,6 +50,20 @@ jobs:
     runs-on: ubuntu-latest
     needs: Prepare
     steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          
+      - name: Set PUBSPEC_VERSION
+        run: |
+          version=$(grep 'version:' pubspec.yaml | tail -n1 | awk '{ print $2}')
+
+          echo $version
+
+          echo "PUBSPEC_VERSION=$version" >> "$GITHUB_ENV"
+
+      - run: echo "${{ env.PUBSPEC_VERSION }}"
+
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GH_TOKEN }}"
