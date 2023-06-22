@@ -54,6 +54,8 @@ jobs:
         with:
           fetch-depth: 0
 
+      - run: git pull origin main
+
       - name: Set PUBSPEC_VERSION
         run: |
           version=$(grep 'version:' pubspec.yaml | tail -n1 | awk '{ print $2}')
