@@ -1,7 +1,3 @@
-## v1.0.15
-
--  ⚗️ Updated push
-
 ## v1.0.14
 
 -  ⚗️ Changed to manual tag creation
