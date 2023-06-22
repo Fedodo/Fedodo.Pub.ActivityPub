@@ -70,10 +70,8 @@ jobs:
 
       - run: |
           git tag v${{ env.PUBSPEC_VERSION }}
-          git push origin --tags
 
-      # - uses: "marvinpinto/action-automatic-releases@latest"
-      #   with:
-      #     repo_token: "${{ secrets.GH_TOKEN }}"
-      #     automatic_release_tag: "v${{ env.PUBSPEC_VERSION }}"
-      #     prerelease: false
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: "${{ secrets.GH_TOKEN }}"
