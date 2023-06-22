@@ -1,5 +1,10 @@
 ## v1.0.10
 
+-  ⚗️ Updated CreateTag step
+-  📝 Updated Changelog
+
+## v1.0.10
+
 -  ⚗️ Two steps test
 -  📝 Updated Changelog
 
