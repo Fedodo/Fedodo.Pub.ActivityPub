@@ -1,3 +1,9 @@
+## v1.1.2
+
+-  🔀 Merge pull request #2 from Fedodo/dev
+-  🐛 Awaiting refreshAccessToken
+-  📝 Updated Changelog
+
 ## v1.1.1
 
 -  🔀 Merge pull request #1 from Fedodo/dev
