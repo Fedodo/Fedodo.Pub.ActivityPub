@@ -1,3 +1,7 @@
+## v1.0.22
+
+-  ⚗️ Added CreateTag step
+
 ## v1.0.21
 
 -  ⚗️ Quotes
