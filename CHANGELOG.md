@@ -1,3 +1,9 @@
+## v1.0.28
+
+-  🔖 Updated version
+-  ⚗️ Removed automatic tag
+-  📝 Updated Changelog
+
 ## v1.0.27
 
 -  🔖 Updated version
