@@ -84,3 +84,9 @@ jobs:
           release_name: v${{ env.PUBSPEC_VERSION }}
           draft: false
           prerelease: false
+
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GH_TOKEN }}"
+          automatic_release_tag: "v${{ env.PUBSPEC_VERSION }}"
+          prerelease: false
