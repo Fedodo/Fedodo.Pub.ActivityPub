@@ -1,3 +1,7 @@
+## v1.0.21
+
+-  ⚗️ Quotes
+
 ## v1.0.20
 
 -  ⚗️ Create Release
