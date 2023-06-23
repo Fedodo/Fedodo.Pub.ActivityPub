@@ -84,3 +84,9 @@ jobs:
           release_name: v${{ env.PUBSPEC_VERSION }}
           draft: false
           prerelease: false
+
+  publish:
+    needs: CreateTag
+    permissions:
+      id-token: write
+    uses: dart-lang/setup-dart/.github/workflows/publish.yml@v1
