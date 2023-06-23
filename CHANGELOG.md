@@ -1,3 +1,9 @@
+## v1.0.19
+
+-  🔖 Updated version
+-  Merge branch 'main' of https://github.com/Fedodo/Fedodo.Pub.ActivityPub
+-  ⚗️ Manual push
+
 ## v1.0.18
 
 -  ⚗️ Removed release
