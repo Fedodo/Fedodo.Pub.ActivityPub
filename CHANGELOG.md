@@ -1,3 +1,9 @@
+## v1.1.1
+
+-  🔀 Merge pull request #1 from Fedodo/dev
+-  🐛 Updated extension methods
+-  📝 Updated Changelog
+
 ## v1.1.0
 
 -  📝 Updated README badge
