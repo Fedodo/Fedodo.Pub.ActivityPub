@@ -1,3 +1,8 @@
+## v1.0.29
+
+-  Merge branch 'main' of https://github.com/Fedodo/Fedodo.Pub.ActivityPub
+-  ⚗️ Reactivated automatic tag
+
 ## v1.0.28
 
 -  🔖 Updated version
