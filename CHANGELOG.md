@@ -1,3 +1,7 @@
+## v1.0.23
+
+-  ⚗️ Added dependencies manual
+
 ## v1.0.22
 
 -  ⚗️ Added CreateTag step
