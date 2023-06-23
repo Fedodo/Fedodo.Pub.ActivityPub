@@ -1,3 +1,7 @@
+## v1.0.24
+
+-  ⚗️ Added permissions
+
 ## v1.0.23
 
 -  ⚗️ Added dependencies manual
