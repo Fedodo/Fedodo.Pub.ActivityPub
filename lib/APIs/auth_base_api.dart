@@ -8,7 +8,7 @@ class AuthBaseApi {
     Map<String, String>? headers,
   }) async {
     if (JwtDecoder.isExpired(Config.accessToken)) {
-      Config.refreshAccessToken();
+      await Config.refreshAccessToken();
     }
 
     var headersToBeSent = <String, String>{
@@ -34,7 +34,7 @@ class AuthBaseApi {
     Map<String, String>? headers,
   }) async {
     if (JwtDecoder.isExpired(Config.accessToken)) {
-      Config.refreshAccessToken();
+      await Config.refreshAccessToken();
     }
 
     var headersToBeSent = <String, String>{
