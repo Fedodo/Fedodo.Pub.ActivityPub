@@ -1,3 +1,8 @@
+## v1.0.25
+
+-  Merge branch 'main' of https://github.com/Fedodo/Fedodo.Pub.ActivityPub
+-  🔖 Updated version
+
 ## v1.0.24
 
 -  ⚗️ Added permissions
