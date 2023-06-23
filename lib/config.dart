@@ -10,7 +10,6 @@ class Config {
 
   static set accessToken(var value) => _accessToken = value;
 
-
   static String? _domainName;
   static String get domainName {
     if (_domainName == null || _domainName!.isEmpty) {
@@ -21,7 +20,6 @@ class Config {
   }
 
   static set domainName(var value) => _domainName = value;
-
 
   static String? _ownActorId;
   static String get ownActorId {
@@ -34,7 +32,6 @@ class Config {
 
   static set ownActorId(var value) => _ownActorId = value;
 
-
   static Function? _refreshAccessToken;
   static Function get refreshAccessToken {
     if (_refreshAccessToken == null) {
@@ -46,9 +43,8 @@ class Config {
 
   static set refreshAccessToken(var value) => _refreshAccessToken = value;
 
-
-  static Function? _asProxyString;
-  static Function get asProxyString {
+  static Function(String)? _asProxyString;
+  static Function(String) get asProxyString {
     if (_asProxyString == null) {
       throw ArgumentError("asProxyString must be set!");
     }
@@ -58,9 +54,8 @@ class Config {
 
   static set asProxyString(var value) => _asProxyString = value;
 
-
-  static Function? _asProxyUri;
-  static Function get asProxyUri {
+  static Function(Uri)? _asProxyUri;
+  static Function(Uri) get asProxyUri {
     if (_asProxyUri == null) {
       throw ArgumentError("asProxyUri must be set!");
     }
