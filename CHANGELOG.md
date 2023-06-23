@@ -1,3 +1,9 @@
+## v1.0.27
+
+-  🔖 Updated version
+-  Merge branch 'main' of https://github.com/Fedodo/Fedodo.Pub.ActivityPub
+-  ⚗️ Added old step
+
 ## v1.0.26
 
 -  ⚗️ Added publish pipeline
