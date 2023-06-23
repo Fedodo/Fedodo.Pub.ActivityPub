@@ -1,3 +1,8 @@
+## v1.1.0
+
+-  📝 Updated README badge
+-  📝 Updated Changelog
+
 ## v1.0.29
 
 -  Merge branch 'main' of https://github.com/Fedodo/Fedodo.Pub.ActivityPub
