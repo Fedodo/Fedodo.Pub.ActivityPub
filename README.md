@@ -5,7 +5,7 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
-[![HugoBuildAndDeploy](https://img.shields.io/github/actions/workflow/status/Fedodo/Fedodo.Pub.ActivityPub/Build.yaml?style=for-the-badge)](https://github.com/Fedodo/Fedodo.Pub.ActivityPub/actions/workflows/Build.yaml)
+[![HugoBuildAndDeploy](https://img.shields.io/github/actions/workflow/status/Fedodo/Fedodo.Pub.ActivityPub/BuildAndPublish.yaml?style=for-the-badge)](https://github.com/Fedodo/Fedodo.Pub.ActivityPub/actions/workflows/BuildAndPublish.yaml)
 
 <!-- PROJECT LOGO -->
 <br />
