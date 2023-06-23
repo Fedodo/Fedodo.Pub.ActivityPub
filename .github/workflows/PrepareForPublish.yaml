@@ -71,6 +71,16 @@ jobs:
       - run: |
           git tag v${{ env.PUBSPEC_VERSION }}
 
-          git remote set-url origin https://LNA-DEV:${{secrets.GH_TOKEN}}@github.com/Fedodo/Fedodo.Pub.ActivityPub.git
+          git remote set-url origin https://LNA-DEV:${{ secrets.GH_TOKEN }}@github.com/Fedodo/Fedodo.Pub.ActivityPub.git
 
           git push origin v${{ env.PUBSPEC_VERSION }}
+
+      - name: Create Release
+        uses: actions/create-release@latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        with:
+          tag_name: v${{ env.PUBSPEC_VERSION }}
+          release_name: v${{ env.PUBSPEC_VERSION }}
+          draft: false
+          prerelease: false
