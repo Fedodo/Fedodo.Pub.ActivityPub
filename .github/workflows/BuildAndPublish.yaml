@@ -18,43 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: Prepare
     steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-
-      - run: git pull origin main
-
-      - name: Set PUBSPEC_VERSION
-        run: |
-          version=$(grep 'version:' pubspec.yaml | tail -n1 | awk '{ print $2}')
-
-          echo $version
-
-          echo "PUBSPEC_VERSION=$version" >> "$GITHUB_ENV"
-
-      - run: echo "${{ env.PUBSPEC_VERSION }}"
-
-      - run: echo "$(cat CHANGELOG.md)"
-
-      - run: |
-          git tag v${{ env.PUBSPEC_VERSION }}
-
-          git remote set-url origin "https://LNA-DEV:${{ secrets.GH_TOKEN }}@github.com/Fedodo/Fedodo.Pub.ActivityPub.git"
-
-          git push origin v${{ env.PUBSPEC_VERSION }}
-
-      - name: Create Release
-        uses: actions/create-release@latest
-        env:
-          GITHUB_TOKEN: "${{ secrets.GH_TOKEN }}"
-        with:
-          tag_name: v${{ env.PUBSPEC_VERSION }}
-          release_name: v${{ env.PUBSPEC_VERSION }}
-          draft: false
-          prerelease: false
-
-      - uses: "marvinpinto/action-automatic-releases@latest"
-        with:
-          repo_token: "${{ secrets.GH_TOKEN }}"
-          automatic_release_tag: "v${{ env.PUBSPEC_VERSION }}"
-          prerelease: false
+      - uses: Fedodo/Fedodo.Pipelines/CreateTagDart@main
+        with: 
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          REPO_NAME: Fedodo.Pub.ActivityPub
