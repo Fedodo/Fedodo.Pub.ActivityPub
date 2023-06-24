@@ -1,3 +1,9 @@
+## v1.1.4
+
+-  🔀 Merge pull request #4 from Fedodo/dev
+-  👷 Changed to CreateTag Pipeline
+-  📝 Updated Changelog
+
 ## v1.1.3
 
 -  🔀 Merge pull request #3 from Fedodo/dev
