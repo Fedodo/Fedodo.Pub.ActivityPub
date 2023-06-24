@@ -10,41 +10,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-
-      - name: Set PUBSPEC_VERSION
-        run: |
-          version=$(grep 'version:' pubspec.yaml | tail -n1 | awk '{ print $2}')
-
-          echo $version
-
-          echo "PUBSPEC_VERSION=$version" >> "$GITHUB_ENV"
-
-      - run: echo "${{ env.PUBSPEC_VERSION }}"
-
-      - name: Check for Tag
-        run: |
-          TAG="v${{ env.PUBSPEC_VERSION }}"
-          if git show-ref --tags --verify --quiet "refs/tags/${TAG}"; then
-            echo "Tag ${TAG} exists"
-            exit 1
-          else
-            echo "Tag ${TAG} does not exist"
-          fi
-
-      - name: Update Changelog
-        run: |
-          commits=$(git log $(git describe --tags --abbrev=0)..HEAD --oneline | cut -c 8- | sed -e 's|^|- |' | cat | sed ':a;N;$!ba;s|\n|\\n|g')
-          sed -i "1s|^|## v${{ env.PUBSPEC_VERSION }}\n\n$(echo "$commits")\n\n|" CHANGELOG.md
-
-      - name: Commit Changelog
-        uses: test-room-7/action-update-file@v1
-        with:
-          file-path: CHANGELOG.md
-          commit-msg: 📝 Updated Changelog
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: Fedodo/Fedodo.Pipelines/PrepareDart@main
+        with: 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   CreateTag:
     runs-on: ubuntu-latest
