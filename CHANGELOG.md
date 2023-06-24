@@ -1,3 +1,9 @@
+## v1.1.3
+
+-  🔀 Merge pull request #3 from Fedodo/dev
+-  👷 Updated prepare to Prepare Dart pipeline
+-  📝 Updated Changelog
+
 ## v1.1.2
 
 -  🔀 Merge pull request #2 from Fedodo/dev
