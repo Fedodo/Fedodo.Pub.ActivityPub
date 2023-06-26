@@ -1,3 +1,9 @@
+## v1.2.0
+
+-  🔀 Merge pull request #6 from Fedodo/dev
+-  ✨ Added webfinger api
+-  📝 Updated Changelog
+
 ## v1.1.5
 
 -  🔀 Merge pull request #5 from Fedodo/dev
