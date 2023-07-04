@@ -17,8 +17,13 @@ class OutboxAPI {
 
     http.Response pageResponse = await http.get(
       outboxUri,
-      headers: {"Content-Type": "application/json"},
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+      },
     );
+
+    Config.logger.d("Response-Headers: ${pageResponse.headers}");
 
     OrderedPagedCollection collection = OrderedPagedCollection.fromJson(
         jsonDecode(utf8.decode(pageResponse.bodyBytes)));
