@@ -1,3 +1,9 @@
+## v1.2.2
+
+-  🔀 Merge pull request #8 from Fedodo/dev
+-  🐛 Added Header
+-  📝 Updated Changelog
+
 ## v1.2.1
 
 -  🔀 Merge pull request #7 from Fedodo/dev
