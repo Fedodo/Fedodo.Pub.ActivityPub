@@ -1,3 +1,5 @@
+import 'package:logger/logger.dart';
+
 class Config {
   static String? _accessToken;
   static String get accessToken {
@@ -64,4 +66,15 @@ class Config {
   }
 
   static set asProxyUri(var value) => _asProxyUri = value;
+
+  static Logger? _logger;
+  static Logger get logger {
+    if (_logger == null) {
+      throw ArgumentError("logger must be set!");
+    }
+
+    return _logger!;
+  }
+
+  static set logger(var value) => _logger = value;
 }

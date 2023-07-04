@@ -7,15 +7,24 @@ import 'package:activitypub/config.dart';
 
 class OutboxAPI {
   Future<OrderedPagedCollection> getFirstPage(String outboxUrl) async {
+    Config.logger.v("Getting first page with outboxUrl=$outboxUrl");
+
     Uri outboxUri = Uri.parse(outboxUrl);
 
     if (outboxUri.authority != Config.domainName) {
       outboxUri = outboxUri.asProxyUri();
     }
 
-    http.Response pageResponse = await http.get(outboxUri);
+    http.Response pageResponse = await http.get(
+      outboxUri,
+      headers: {"Content-Type": "application/json"},
+    );
+
     OrderedPagedCollection collection = OrderedPagedCollection.fromJson(
         jsonDecode(utf8.decode(pageResponse.bodyBytes)));
+
+    Config.logger.v("Returning collection");
+
     return collection;
   }
 
