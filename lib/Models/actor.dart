@@ -49,7 +49,7 @@ class Actor {
         icon = getMedia(json["icon"]),
         publicKey = PublicKey.fromJson(json["publicKey"]),
         endpoints = Endpoints.fromJson(json["endpoints"]),
-        published = DateTime.tryParse(json["published"]);
+        published = json["published"] != null ? DateTime.tryParse(json["published"]) : null;
 
   static Media? getMedia(dynamic json) {
     if (json != null) {
