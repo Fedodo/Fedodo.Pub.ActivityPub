@@ -1,3 +1,10 @@
+## v1.2.1
+
+-  🔀 Merge pull request #7 from Fedodo/dev
+-  🔖 Updated version
+-  🐛 Fixed actor published bug
+-  📝 Updated Changelog
+
 ## v1.2.0
 
 -  🔀 Merge pull request #6 from Fedodo/dev
