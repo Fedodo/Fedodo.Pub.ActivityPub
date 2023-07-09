@@ -1,9 +1,9 @@
 import 'dart:core';
 import 'package:activitypub/Models/ObjectTypes/document.dart';
-
+import 'CoreTypes/object.dart';
 import 'collection.dart';
 
-class Post {
+class Post extends ActivityPubObject {
   final List<String> to;
   final String? name;
   final String? summary;

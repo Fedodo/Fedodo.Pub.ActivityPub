@@ -1,4 +1,6 @@
-class Document {
+import 'package:activitypub/Models/CoreTypes/object.dart';
+
+class Document extends ActivityPubObject {
   final String type;
   final String? name;
   final String? mediaType;
