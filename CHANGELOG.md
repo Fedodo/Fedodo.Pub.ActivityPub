@@ -1,3 +1,9 @@
+## v1.2.4
+
+-  🔀 Merge pull request #10 from Fedodo/dev
+-  ✨ Added activity pub object
+-  📝 Updated Changelog
+
 ## v1.2.3
 
 -  🔀 Merge pull request #9 from Fedodo/dev
