@@ -1,3 +1,7 @@
 class ActivityPubObject {
-  List<ActivityPubObject>? attachments;
+  final List<ActivityPubObject>? attachments;
+
+  ActivityPubObject(
+    this.attachments,
+  );
 }

@@ -30,7 +30,7 @@ class Post extends ActivityPubObject {
     this.attributedTo,
     this.replies,
     this.attachment,
-  );
+  ) : super(attachment);
 
   Post.fromJson(Map<String, dynamic> json)
       : to = convertToStringList(json["to"]),
@@ -46,7 +46,8 @@ class Post extends ActivityPubObject {
         attachment = toListOfDocuments(json["attachment"]),
         replies = json["replies"] == null
             ? null
-            : Collection.fromJson(json["replies"]);
+            : Collection.fromJson(json["replies"]),
+        super(json["attachment"]);
 
   static List<String> convertToStringList(json) {
     List<String> jsonList = [];
