@@ -9,13 +9,10 @@ class Post extends ActivityPubObject {
   final String? summary;
   final bool? sensitive;
   final String? inReplyTo;
-  final String content;
   final String id;
   final String type;
   final DateTime published;
-  final String attributedTo;
   final Collection? replies;
-  final List<Document>? attachment;
 
   Post(
     this.to,
@@ -23,14 +20,18 @@ class Post extends ActivityPubObject {
     this.summary,
     this.sensitive,
     this.inReplyTo,
-    this.content,
+    content,
     this.id,
     this.type,
     this.published,
-    this.attributedTo,
+    attributedTo,
     this.replies,
-    this.attachment,
-  );
+    attachment,
+  ) : super(
+          attachment,
+          content,
+          attributedTo,
+        );
 
   Post.fromJson(Map<String, dynamic> json)
       : to = convertToStringList(json["to"]),
@@ -38,15 +39,17 @@ class Post extends ActivityPubObject {
         summary = json["summary"],
         sensitive = json["sensitive"],
         inReplyTo = json["inReplyTo"],
-        content = json["content"],
         id = json["id"],
         type = json["type"],
         published = DateTime.parse(json["published"]),
-        attributedTo = json["attributedTo"],
-        attachment = toListOfDocuments(json["attachment"]),
         replies = json["replies"] == null
             ? null
-            : Collection.fromJson(json["replies"]);
+            : Collection.fromJson(json["replies"]),
+        super(
+          json["attachment"],
+          json["content"],
+          json["attributedTo"],
+        );
 
   static List<String> convertToStringList(json) {
     List<String> jsonList = [];
