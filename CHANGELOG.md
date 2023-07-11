@@ -1,3 +1,10 @@
+## v1.2.5
+
+-  🔀 Merge pull request #11 from Fedodo/dev
+-  ✨ Added props to object
+-  🚧 Made object prop final
+-  📝 Updated Changelog
+
 ## v1.2.4
 
 -  🔀 Merge pull request #10 from Fedodo/dev
