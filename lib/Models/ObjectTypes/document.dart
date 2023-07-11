@@ -13,7 +13,11 @@ class Document extends ActivityPubObject {
     this.mediaType,
     this.context,
     this.url,
-  ) : super(null);
+  ) : super(
+          null,
+          null,
+          null,
+        );
 
   Document.fromJson(Map<String, dynamic> json)
       : type = json["type"],
@@ -21,5 +25,9 @@ class Document extends ActivityPubObject {
         url = Uri.tryParse(json["url"]),
         name = json["name"],
         context = json["@context"],
-        super(null);
+        super(
+          null,
+          null,
+          null,
+        );
 }

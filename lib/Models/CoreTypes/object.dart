@@ -1,7 +1,11 @@
 class ActivityPubObject {
-  final List<ActivityPubObject>? attachments;
+  final List<ActivityPubObject>? attachment;
+  final String? content;
+  final String? attributedTo;
 
   ActivityPubObject(
-    this.attachments,
+    this.attachment,
+    this.content,
+    this.attributedTo,
   );
 }
