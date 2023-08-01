@@ -1,18 +1,21 @@
 import 'dart:core';
 import 'package:activitypub/Models/ObjectTypes/document.dart';
-import 'CoreTypes/object.dart';
+
 import 'collection.dart';
 
-class Post extends ActivityPubObject {
+class Post {
   final List<String> to;
   final String? name;
   final String? summary;
   final bool? sensitive;
   final String? inReplyTo;
+  final String content;
   final String id;
   final String type;
   final DateTime published;
+  final String attributedTo;
   final Collection? replies;
+  final List<Document>? attachment;
 
   Post(
     this.to,
@@ -20,18 +23,14 @@ class Post extends ActivityPubObject {
     this.summary,
     this.sensitive,
     this.inReplyTo,
-    content,
+    this.content,
     this.id,
     this.type,
     this.published,
-    attributedTo,
+    this.attributedTo,
     this.replies,
-    attachment,
-  ) : super(
-          attachment,
-          content,
-          attributedTo,
-        );
+    this.attachment,
+  );
 
   Post.fromJson(Map<String, dynamic> json)
       : to = convertToStringList(json["to"]),
@@ -39,17 +38,15 @@ class Post extends ActivityPubObject {
         summary = json["summary"],
         sensitive = json["sensitive"],
         inReplyTo = json["inReplyTo"],
+        content = json["content"],
         id = json["id"],
         type = json["type"],
         published = DateTime.parse(json["published"]),
+        attributedTo = json["attributedTo"],
+        attachment = toListOfDocuments(json["attachment"]),
         replies = json["replies"] == null
             ? null
-            : Collection.fromJson(json["replies"]),
-        super(
-          json["attachment"],
-          json["content"],
-          json["attributedTo"],
-        );
+            : Collection.fromJson(json["replies"]);
 
   static List<String> convertToStringList(json) {
     List<String> jsonList = [];
