@@ -1,3 +1,11 @@
+## v1.2.6
+
+-  🔀 Merge pull request #15 from Fedodo/dev
+-  ⚗️ Test
+-  🔀 Merge pull request #14 from Fedodo/dev
+-  ⚗️ Fixed type issues
+-  📝 Updated Changelog
+
 ## v1.2.5
 
 -  🔀 Merge pull request #11 from Fedodo/dev
