@@ -13,7 +13,7 @@ class InboxAPI {
     return collection;
   }
 
-  Future<OrderedCollectionPage> getPosts<T>(String nextUrl) async {
+  Future<OrderedCollectionPage<T>> getPosts<T>(String nextUrl) async {
     http.Response pageResponse = await AuthBaseApi.get(
       url: Uri.parse(nextUrl),
     );
