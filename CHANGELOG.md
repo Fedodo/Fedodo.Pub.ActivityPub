@@ -1,3 +1,9 @@
+## v1.2.9
+
+-  🔀 Merge pull request #19 from Fedodo/dev
+-  🚧 Removed extent
+-  📝 Updated Changelog
+
 ## v1.2.8
 
 -  🔀 Merge pull request #18 from Fedodo/dev
