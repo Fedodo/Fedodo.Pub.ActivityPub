@@ -33,7 +33,7 @@ class OutboxAPI {
     return collection;
   }
 
-  Future<OrderedCollectionPage> getPosts(String nextUrl) async {
+  Future<OrderedCollectionPage<T>> getPosts<T>(String nextUrl) async {
     Uri nextUri = Uri.parse(nextUrl);
 
     if (nextUri.authority != Config.domainName) {
@@ -42,7 +42,7 @@ class OutboxAPI {
 
     http.Response pageResponse = await http.get(nextUri);
 
-    OrderedCollectionPage collection = OrderedCollectionPage.fromJson(
+    OrderedCollectionPage<T> collection = OrderedCollectionPage<T>.fromJson(
         jsonDecode(utf8.decode(pageResponse.bodyBytes)));
 
     return collection;
