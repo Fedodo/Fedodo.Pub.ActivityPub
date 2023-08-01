@@ -13,12 +13,12 @@ class InboxAPI {
     return collection;
   }
 
-  Future<OrderedCollectionPage> getPosts(String nextUrl) async {
+  Future<OrderedCollectionPage> getPosts<T>(String nextUrl) async {
     http.Response pageResponse = await AuthBaseApi.get(
       url: Uri.parse(nextUrl),
     );
 
-    OrderedCollectionPage collection = OrderedCollectionPage.fromJson(jsonDecode(utf8.decode(pageResponse.bodyBytes)));
+    OrderedCollectionPage<T> collection = OrderedCollectionPage<T>.fromJson(jsonDecode(utf8.decode(pageResponse.bodyBytes)));
 
     return collection;
   }
