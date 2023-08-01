@@ -1,3 +1,11 @@
+## v1.2.8
+
+-  🔀 Merge pull request #18 from Fedodo/dev
+-  🔖 Updated Version
+-  🔀 Merge pull request #17 from Fedodo/dev
+-  🐛 Also added type change for outbox
+-  📝 Updated Changelog
+
 ## v1.2.7
 
 -  🔀 Merge pull request #16 from Fedodo/dev
