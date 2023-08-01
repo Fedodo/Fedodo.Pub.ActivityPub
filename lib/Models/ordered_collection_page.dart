@@ -26,5 +26,5 @@ class OrderedCollectionPage<T> {
         prev = json["prev"],
         partOf = json["partOf"],
         id = json["id"],
-        orderedItems = OrderedCollection.generatePosts(json["orderedItems"]);
+        orderedItems = OrderedCollection.generatePosts<T>(json["orderedItems"]);
 }
