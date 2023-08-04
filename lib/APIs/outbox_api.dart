@@ -41,10 +41,16 @@ class OutboxAPI {
     }
 
     http.Response pageResponse = await http.get(nextUri);
+    String body = utf8.decode(pageResponse.bodyBytes);
 
-    OrderedCollectionPage<T> collection = OrderedCollectionPage<T>.fromJson(
-        jsonDecode(utf8.decode(pageResponse.bodyBytes)));
-
-    return collection;
+    if (pageResponse.statusCode == 200) {
+      OrderedCollectionPage<T> collection =
+          OrderedCollectionPage<T>.fromJson(jsonDecode(body));
+      return collection;
+    } else {
+      String message = "OutboxAPI returned non successful status code! \n\nThe body was: $body";
+      Config.logger.e(message);
+      throw FormatException(message);
+    }
   }
 }
