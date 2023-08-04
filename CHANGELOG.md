@@ -1,3 +1,9 @@
+## v1.2.10
+
+-  🔀 Merge pull request #20 from Fedodo/dev
+-  🔊 Updated logging and error handling
+-  📝 Updated Changelog
+
 ## v1.2.9
 
 -  🔀 Merge pull request #19 from Fedodo/dev
